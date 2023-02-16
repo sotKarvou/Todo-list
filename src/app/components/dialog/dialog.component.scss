@@ -1,0 +1,20 @@
+article {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    padding-inline: 2rem;
+    margin-bottom: 0rem;
+  }
+  form {
+    height: 20rem;
+    width: 18rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    /*     input{
+            
+        } */
+  }
+}

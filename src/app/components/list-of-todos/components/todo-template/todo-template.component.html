@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ aTodo.title }}</mat-card-title>
+    <mat-card-subtitle>{{ aTodo.description }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button (click)="onMarkAsDone()">Mark as Done</button>
+    <button mat-button (click)="onDelete()">Delete</button>
+  </mat-card-actions>
+</mat-card>

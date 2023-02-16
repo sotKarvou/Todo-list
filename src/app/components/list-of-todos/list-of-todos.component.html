@@ -1,0 +1,41 @@
+<article>
+  <section>
+    <div
+      *ngIf="todo$ | async as todo"
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      (cdkDropListDropped)="drop($event)"
+      
+    >
+      <app-todo-template *ngFor="let item of todo$ | async" [aTodo]="item" (mark)="markAsDone($event)" (del)="onDelete($event)">
+        {{ item.title }}
+      </app-todo-template>
+    </div>
+    <!-- <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>
+        {{ item }}
+      </div>
+    </div> -->
+  </section>
+
+  <!-- <section>
+    <div
+     *ngIf="done$ | async as done"
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="done"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <app-todo-template *ngFor="let item of todo$ | async" [aTodo]="item">
+        {{ item.title }}
+      </app-todo-template>
+    </div>
+  </section> -->
+</article>

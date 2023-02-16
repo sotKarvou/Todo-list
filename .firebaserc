@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "modern-ui-todos-list": {
+      "hosting": {
+        "modern-ui-todos-list": [
+          "modern-ui-todos-list"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "modern-ui-todos-list"
+  }
+}
