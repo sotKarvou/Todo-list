@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 import { collection, query, where } from '@firebase/firestore';
 
 export interface Todo {
@@ -48,6 +48,23 @@ export class TodosHandlerService {
       .catch((error) => console.log(`Error querying collection: ${error}`));
   }
 
+  markAllasDone() {
+    this.firestore
+      .collection('todos')
+      .get()
+      .subscribe((querySnapshot) => {
+        if (querySnapshot.size > 0) {
+          querySnapshot.forEach((doc) => {
+            this.firestore.collection('todos').doc(doc.id).update({
+              done: true,
+            });
+          });
+        } else {
+          console.log(`No document found`);
+        }
+      });
+  }
+
   deleteTodo(title: string) {
     this.firestore
       .collection('todos')
@@ -67,5 +84,27 @@ export class TodosHandlerService {
         }
       })
       .catch((error) => console.log(`Error querying collection: ${error}`));
+  }
+
+  deleteAllTodos() {
+    this.firestore
+      .collection('todos')
+      .get()
+      .subscribe((querySnapshot) => {
+        if (querySnapshot.size > 0) {
+          querySnapshot.forEach((doc) =>
+            this.firestore
+              .collection('todos')
+              .doc(doc.id)
+              .delete()
+              .then(() => console.log('Document updated successfully'))
+              .catch((error) =>
+                console.log(`Error updating document: ${error}`)
+              )
+          );
+        } else {
+          console.log(`No document found`);
+        }
+      });
   }
 }

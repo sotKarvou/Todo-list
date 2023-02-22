@@ -13,14 +13,18 @@ import { MatCardModule } from '@angular/material/card';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListOfTodosComponent } from './components/list-of-todos/list-of-todos.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 import { TodoTemplateComponent } from './components/list-of-todos/components/todo-template/todo-template.component';
-
+import { YoutubeSearchComponent } from './components/youtube-search/youtube-search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { AllDoneComponent } from './components/all-done/all-done.component';
+import { DeleteAllComponent } from './components/delete-all/delete-all.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { TodoTemplateComponent } from './components/list-of-todos/components/tod
     DialogComponent,
     ListOfTodosComponent,
     TodoTemplateComponent,
+    YoutubeSearchComponent,
+    AllDoneComponent,
+    DeleteAllComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +50,11 @@ import { TodoTemplateComponent } from './components/list-of-todos/components/tod
     MatFormFieldModule,
     FormsModule,
     DragDropModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    HttpClientModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,3 +1,7 @@
-.utility-btns{
-    margin-inline:2rem ;
+.utility-btns {
+  position: fixed;
+  bottom: 0rem;
+  margin: 2rem;
+  display: flex;
+  gap: 2rem;
 }

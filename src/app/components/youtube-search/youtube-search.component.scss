@@ -1,0 +1,17 @@
+section {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+
+  label{
+    font-size: x-large;
+  }
+  input {
+    width: 20rem;
+    height: 2rem;
+    border-radius: 1rem;
+  }
+}

@@ -16,32 +16,32 @@ import {
   styleUrls: ['./list-of-todos.component.scss'],
 })
 export class ListOfTodosComponent {
-  todo$: Observable<Todo[]> = this.tdh.getTodos().pipe(
-    map((data) => data.filter((element) => element.done === false)),
-    tap((x) => console.log(x))
-  );
-  // done$: Observable<Todo[]> = this.tdh
-  //   .getTodos()
-  //   .pipe(map((data) => data.filter((element) => element.done === true)));
+  todo$: Observable<Todo[]> = this.tdh
+    .getTodos()
+    .pipe(map((data) => data.filter((element) => element.done === false)));
+  done$: Observable<Todo[]> = this.tdh
+    .getTodos()
+    .pipe(map((data) => data.filter((element) => element.done === true)));
 
   constructor(private tdh: TodosHandlerService) {}
 
-  drop(event: CdkDragDrop<Todo[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-    }
-  }
+  // drop(event: CdkDragDrop<Todo[]>) {
+
+  //   if (event.previousContainer === event.container) {
+  //     moveItemInArray(
+  //       event.container.data,
+  //       event.previousIndex,
+  //       event.currentIndex
+  //     );
+  //   } else {
+  //     transferArrayItem(
+  //       event.previousContainer.data,
+  //       event.container.data,
+  //       event.previousIndex,
+  //       event.currentIndex
+  //     );
+  //   }
+  // }
 
   markAsDone(value: any) {
     this.tdh.markAsDone(value);
